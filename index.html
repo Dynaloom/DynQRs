@@ -3,14 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=https://shinyapple.net/">
-  <title>Redirecting...</title>
+  <title>Redireccionando...</title>
   <script>
-    // Redirección inmediata con JavaScript
-    window.location.href = "https://shinyapple.net/";
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      const key = params.get("key");
+
+      const redirects = {
+        app: "https://dynaloom.ttvcol.com/shinyapple",
+        Corven: "https://dynaloom.ttvcol.com/corven",
+        Dynaloom: "https://dynaloom.ttvcol.com/alex",
+        Arky: "https://dynaloom.ttvcol.com/arky",
+        Alex: "https://dynaloom.ttvcol.com/alex"
+      };
+
+      if (key && redirects[key]) {
+        window.location.href = redirects[key];
+      } else {
+        document.body.innerHTML = `<h1>🔍 QR inválido o sin destino asignado.</h1>`;
+      }
+    };
   </script>
 </head>
 <body>
-  <p>If you are not redirected, <a href="https://shinyapple.net/">click here</a>.</p>
+  <p>Redireccionando...</p>
 </body>
 </html>
+
